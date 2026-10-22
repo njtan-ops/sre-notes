@@ -1,0 +1,26 @@
+/* Light Theme - Darker background for contrast */
+.theme-light {
+  --code-background: #eaeaea;
+}
+
+/* Dark Theme - Slightly lighter/richer background */
+.theme-dark {
+  --code-background: #1e1e1e;
+}
+
+/* Target Reading View */
+.markdown-rendered pre {
+  background-color: var(--code-background) !important;
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* Target Live Preview / Editing View */
+.cm-s-obsidian .HyperMD-codeblock {
+  background-color: var(--code-background) !important;
+}
+
+/* Optional: Ensure code block border matches in Live Preview */
+.cm-s-obsidian .cm-embed-block:has(.HyperMD-codeblock) {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+}

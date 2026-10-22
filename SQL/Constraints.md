@@ -1,0 +1,5 @@
+- PRIMARY KEY
+- UNIQUE
+- NOT NULL
+- DEFAULT
+- 

@@ -1,0 +1,19 @@
+- CREATE
+	- create new table
+- INSERT
+	- insert new row to the table
+- SELECT
+	- fetch data from a database
+	- always return a new table called the **result set**
+- ALTER
+	- add new column to table
+- UPDATE
+	- edit row in a table
+- DELETE
+	- delete one or more rows from a table
+- CASE
+	- create different output based on if-then logic
+- UNION
+	- join two result set from select statements
+- WITH
+	- define a query with a name that can be referenced in the next queries 

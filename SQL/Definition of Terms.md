@@ -1,0 +1,26 @@
+- SQL
+	- Structured Query Language
+- ACID
+	- acronym for atomicity, consistency, isolation, and durability
+		- atomicity
+			- prevents partial database updates from occurring
+		- consistency
+			- any data written to the database must be valid according to all defined rules
+		- isolation
+			- determines how transaction integrity is visible to other users and systems
+		- durability
+			- guarantees that the effects of transactions that have been committed will survive permanently
+- Statement
+	- text the database recognizes as a command
+	- always end in semicolon
+- Clause
+	- perform specific tasks in SQL
+	- clauses can also be referred to as commands
+	- usually written in capital letters
+- Parameter
+	- a list of column names and associated data type
+- NULL
+	- a special value in SQL that represents missing or unknown data
+- Constraints
+	- add information about how a column can be used are invoked after specifying the data type for a column
+	- used to tell the database to reject inserted data that does not adhere to a certain restriction

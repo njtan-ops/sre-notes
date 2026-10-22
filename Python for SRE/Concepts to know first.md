@@ -1,0 +1,7 @@
+- POSIX
+	- Portable Operating System Interface
+- PIP
+	- Preferred Installer Progarm
+	- PIP Installs Packages
+- UTF
+	- Unicode Transformation Format

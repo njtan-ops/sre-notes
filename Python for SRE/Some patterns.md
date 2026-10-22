@@ -1,0 +1,6 @@
+- time
+	- atime, last <u>a</u>ccessed
+	- mtime, last <u>m</u>odified
+		- modification of content
+	- ctime, last <u>c</u>hanged(on unix systems) or <u>c</u>reation time (on windows)
+		- change in metadata

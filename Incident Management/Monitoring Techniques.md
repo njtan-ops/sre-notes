@@ -1,0 +1,12 @@
+- Blackbox Monitoring
+	- Response Time
+	- Load Time
+	- Ping
+	- API Call
+	- SSH
+	- Tells if you're affected
+- Whitebox Monitoring
+	- Metrics
+	- Logs
+	- Traces
+	- Tells you why

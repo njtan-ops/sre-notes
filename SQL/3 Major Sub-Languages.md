@@ -1,0 +1,14 @@
+- Data Definition Language
+	- DDL
+	- to create and modify the structure of the database
+- Data Manipulation Language
+	- DML
+	- to perform Read, Insert, Update and Delete operations on the data of the database
+		- Create - INSERT
+		- Read - SELECT
+		- Update - UPDATE
+		- Delete - DELETE
+	- MERGE statement perform INSERT, UPDATE, DELETE operations
+- Data Control Language
+	- DCL
+	- to control the access of the data stored in the database

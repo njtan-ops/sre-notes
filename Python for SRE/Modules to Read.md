@@ -1,0 +1,14 @@
+- os
+- json
+- csv
+- requests
+- fastapi
+	- uvicorn
+	- pydantic
+	- psycopg2
+	- sqlalchemy
+	- email-validator
+	- passlib[bycript]
+	- python-jose[cryptography]
+- time
+- boto3

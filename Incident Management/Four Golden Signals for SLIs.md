@@ -1,0 +1,8 @@
+- Latency
+	- 99% of requests complete in under 200ms
+- Traffic
+	- System handles 1000 requests per second with <1% error rate
+- Saturation
+	- CPU utilization stays below 80% during peak hours
+- Errors
+	- 99.9. of requests return successful responses

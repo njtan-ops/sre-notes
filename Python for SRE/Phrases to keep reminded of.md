@@ -1,0 +1,5 @@
+- Dependency hell
+- Incompatible versions
+- Virtual Environment
+	- a cooperatively isolated runtime environment
+- 

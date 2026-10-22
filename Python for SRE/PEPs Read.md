@@ -1,0 +1,6 @@
+- 686 - Make UTF-8 mode default
+- 540 - Add a new UTF-8 mode
+- 538 - Coercing the legacy C locale to a UTF-8 based locale
+- 529 - Change Windows file system encoding to UTF-8
+- 427 - The Wheel Binary Package Format 1.0
+- 405 - Python Virtual Environments

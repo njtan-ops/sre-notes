@@ -1,0 +1,18 @@
+- Layered or N-tier architecture
+	- traditional architecture often used to build on-premise and enterprise apps, and is frequently associated with legacy apps
+- Monolithic architecture
+	- a single application stack that contains all functionality within that 1 application.
+	- tightly coupled both in the interaction between the services and how they are developed and delivered
+- Microservices architecture
+	- both an architecture and an approach to writing software
+	- apps are broken down into their smallest components, independent from each other
+	- each of these components or processes is a microservice
+- Event-driven architecture
+	- the capture, communication, processing, and persistence of events are the core structure of the solution
+	- made up of event producers and event consumers
+- Service-oriented Architecture
+	- well-established style of software design, that is similar to the microservices architecture style
+	- structures apps into discrete, reusable services that communicate through an enterprise service bus (ESB)
+	- individual services adhere to a communication protocol and expose themselves through the platform of an ESB
+- MicroKernel Architecture
+	- Core application with support for plugin/extensions

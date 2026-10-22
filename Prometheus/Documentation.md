@@ -1,0 +1,81 @@
+- Overview
+- Configuration ^configuration
+	- File is [`prometheus.yml`](prometheus.yml) 
+	- Can be set as a flag `--config.file=prometheus.yml`
+	- In example you see 3 major parts: 
+		- global
+			- scrape_interval
+			- scrape_timeout
+			- external_labels
+		- rule_files ^15b085
+		- scrape_config_files
+		- [[Documentation#^scraping | scrape_configs]]
+		- alerting
+			- See [[Documentation#^alrt|Alerting]]
+		- storage
+- Networking
+	- Default port is `9090`
+- Scraping ^scraping
+	- By default it scrapes itself
+	- Can be configured in [[Documentation#^configuration|Configuration]] 
+	- Schema
+		- job_name
+		- static_configs (also other types of Service Discovery) ^8f1c15
+			- targets
+				- host
+			- labels
+		- relabel_configs ^rlschema
+			- source_label
+			- separator
+			- target_label
+			- regex
+			- modulus
+			- replacement
+			- action
+		- scrape_interval
+		- scrape_timeout
+		- metrics_path
+		- scheme
+		- params
+		- enable_compression
+- Relabeling
+	- See [[Documentation#^rlschema|Relabel Config Schema]]
+- Rules
+	- There are two types of rules:
+		- recording
+			- where you predefine queries for future use case
+			- [[recording_rule.yaml]]
+		- alerting ^3f6c6f
+			- [[alerting_rule.yaml]]
+	- rules are in YAML
+	- configuration on which rules to use is located in [[Documentation#^15b085|config.rule_files]]
+- Alerting ^alrt
+	- Schema
+		- alert_relabel_configs
+			- See [[Documentation#^rlschema|Relabel Config Schema]]
+		- alertmanagers
+			- basic_auth
+			- authorization
+			- tls_config
+			- static_configs
+				- See [[Documentation#^8f1c15|Static Config Schema]]
+			- alert_relabel_configs
+				- See [[Documentation#^rlschema|Relabel Config Schema]]
+	- For where to define alerts, see [[Documentation#^3f6c6f|Rules > Alerting Rule]]
+- Expression browser
+	- /graph if v2.53
+	- /query if latest (3.15)
+- [[Templating]]
+- HTTPS and Authentication
+	- See [[Authentication Encryption]]
+
+- Tutorials
+	- [[Local Installation]] 
+	- [[Local Installation as Service]]
+	- [[Authentication Encryption]]
+	- [[Recording Rules]]
+	- [[Console Templates]]
+	- 
+
+- Questions for office hours, the prometheus used in the activity differs from the latest, which will we use?
+	- The latest version is `3.x` but the kube-prometheus-stack helm at `61.7.0` bundles prometheus `2.53.1` 

@@ -1,0 +1,42 @@
+- `up`
+- `node_memory_MemAvailable_bytes`
+- `node_arp_entries`
+- `node_network_receive_bytes_total`
+- `node_context_switches_total`
+- `node_cpu_seconds_total`
+- `node_filesystem_avail_bytes`
+- `node_network_receive_bytes_total`
+- `node_filesystem_files`
+- `node_filesystem_size_bytes`
+
+
+
+- labels
+	- `query{label="value"}`
+	-  multiple value
+		- `query{label=~"value1|value2"}`
+- time
+	- range
+		- `query{} [5m]`
+	- timestamp
+		- `query{} @<timestamp>`
+	- offset
+		- `query{} offset 5m`
+- operators
+	- >, <, <=, >=, ==
+		- `query{} > 1000`
+		- `query{} > 1000 and query{} < 2000`
+	- +, /, \*, %
+		- `query{} * 100 / query2{}`
+		- `query{} * 100 / ignoring(label,) query2{}`
+- aggregates
+	- sum
+		- `sum(query{})`
+	- count
+		- `count(query{})`
+- grouping
+	- `aggregate(query{}) by (label,)`
+	- `aggregate by(label,)(query{}) / aggregate by(label,)(query{})`
+	- `query{} * 100 / ignoring(label,) aggregate by(label,)(query{})`
+	- group_left or group_right
+		- `query{} * 100 / ignoring(label,) group_left query{}`

@@ -1,0 +1,9 @@
+
+|                  | App                                                                                              | Program                                                                                    |
+| ---------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| Platform         | Commonly associated with mobile devices but sometimes available on other devices or via the web. | Primarily desktop-based but includes background and system-level software.                 |
+| Purpose          | Focused on performing a specific task or set of tasks efficiently.                               | Handles a wide range of tasks, including system operations and backend processes.          |
+| Complexity       | Simple and intuitive, often designed for consumer use.                                           | Can range from simple to highly complex, often designed for professional or technical use. |
+| Distribution     | Typically downloaded from app stores (Google Play, Apple App Store).                             | Distributed via installation files (.exe, .dmg) or pre-installed on systems.               |
+| User interaction | Requires direct interaction with a user-friendly interface.                                      | May or may not involve user interaction; some run in the background.                       |
+| Size and scope   | Smaller, lightweight, and task-focused.                                                          | Larger, more complex, and system-encompassing.                                             |

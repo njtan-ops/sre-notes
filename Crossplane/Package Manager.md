@@ -1,0 +1,1 @@
+- lets you install new managed resources and composition functions

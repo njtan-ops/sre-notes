@@ -1,0 +1,6 @@
+- Short windows
+	- ideal for immediate alerting on severe issues ensuring quick response
+- Medium Windows
+	- suitable for operational awareness, providing a balance between immediacy and overview
+- Long Windows
+	- best for SLO compliance tracking, offering a comprehensive view over time

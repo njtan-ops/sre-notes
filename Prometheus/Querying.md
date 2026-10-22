@@ -1,0 +1,41 @@
+- Expression Language Data Types
+	- Instant vector
+	- Range vector
+	- Scalar 
+	- String
+- Literals
+	- String
+	- Float
+- Time Series Selectors
+	- Instant Vector
+	- Range Vector
+- Matches
+	- =    -> Equals
+	- !=  -> Not Equals
+	- =~  -> Regex Match
+	- !~   -> Non-regex Match
+- Time Durations
+	- ms -> milliseconds
+	- s     -> seconds
+	- m   -> minutes
+	- h    -> hours
+	- d    -> days    | 24h
+	- w   -> weeks | 7d
+	- y    -> years   | 365d
+- Modifiers
+	- Offset modifier
+	- @ modifier
+		- based on unix timestamp
+- Subquery
+	- 
+- Operators
+	- Arithmetic Binary
+		- +
+		- -
+		- \*
+		- /
+		- %
+		- ^
+	- tri
+- Functions
+- 

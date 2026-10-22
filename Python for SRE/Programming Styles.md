@@ -1,0 +1,5 @@
+- EAFP - Easier to ask for forgiveness than permission
+	- utilizing exceptions or using exceptions on every assumptions
+- LBYL - Look before you leap
+	- explicitly test for pre-conditions before making calls
+	- risk of race conditions when on multi-threading

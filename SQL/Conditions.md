@@ -1,0 +1,14 @@
+- IS
+- ISNULL
+- NOTNULL
+- NOT
+- [[Operators]]
+- LIKE
+	- %
+		- match any character in any number of sequence
+	- _
+		- match any character in 1 sequence
+- BETWEEN
+	- AND
+- AND 
+- OR

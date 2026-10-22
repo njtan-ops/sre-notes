@@ -1,0 +1,44 @@
+- CREATE TABLE
+	- [[Constraints]]
+	- PRIMARY KEY
+	- FOREIGN KEY
+- INSERT INTO
+	- VALUES
+- WITH
+	- AS
+		- SELECT
+- SELECT
+	- [[Aggregates]]
+	- DISTINCT
+	- CASE
+		- WHEN
+			- THEN
+			- ELSE
+		- END
+			- AS
+	- AS
+	- FROM
+	- [[JOIN TYPE]] JOIN 
+		- ON
+	- WHERE
+		- [[Conditions]]
+	- ORDER BY
+		- [[Ordering Term]]
+	- LIMIT
+	- GROUP BY
+		- [[Aggregates]]
+		- can use numbers to (1, 2, 3) to select the column
+	- HAVING
+		- [[Aggregates]]
+- UNION
+- ALTER TABLE
+	- ADD COLUMN
+	- RENAME TABLE
+	- RENAME COLUMN
+	- DROP COLUMN
+	- 
+- UPDATE
+	- SET
+	- WHERE
+- DELETE FROM
+	- WHERE

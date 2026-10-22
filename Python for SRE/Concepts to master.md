@@ -1,0 +1,5 @@
+- with open (for file read and write)
+- comprehension lists
+- try catch (generally expecting the input to be not perfect)
+	- this includes string manipulations like trim
+	- dealing with crlf and lf 

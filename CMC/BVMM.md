@@ -1,0 +1,12 @@
+- Beliefs: 
+	- We’re here to become our best selves.
+	- In the me-next mindset.
+	- That work can be our workshop.
+	- Relationships are the foundation.
+- Vision: The work we do today -- and how we do it --_ _will lead to thriving relationships that will last a lifetime.  
+- Mission: To help those next to us and in front of us live better lives.
+- Methods:
+	- Be the Anteambulo
+	- Build healthy communities
+	- Make it meaningful
+	- Grow and go

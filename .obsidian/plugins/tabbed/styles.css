@@ -1,0 +1,262 @@
+.tabbed {
+  --tabbed-title-max-width: 18rem;
+  --tabbed-inner-radius: max(0px, calc(var(--radius-s) - var(--border-width)));
+
+  display: flex;
+  min-width: 0;
+  contain: layout;
+  color: var(--text-normal);
+  background: var(--background-primary);
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-s);
+}
+
+.tabbed[class~='tabbed--top'],
+.tabbed[class~='tabbed--bottom'] {
+  flex-direction: column;
+}
+
+.tabbed[class~='tabbed--left'],
+.tabbed[class~='tabbed--right'] {
+  flex-direction: row;
+}
+
+.tabbed > [class~='tabbed__list'] {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--size-2-1);
+  min-width: 0;
+  margin: 0;
+  padding: var(--size-2-2);
+  overflow: auto;
+  background: var(--background-secondary);
+}
+
+.tabbed[class~='tabbed--top'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--bottom'] > [class~='tabbed__list'] {
+  flex-direction: row;
+  width: 100%;
+}
+
+.tabbed[class~='tabbed--left'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--right'] > [class~='tabbed__list'] {
+  flex-direction: column;
+  align-items: stretch;
+  max-width: min(40%, var(--tabbed-title-max-width));
+}
+
+.tabbed[class~='tabbed--one'] > [class~='tabbed__list'] {
+  flex-wrap: nowrap;
+}
+
+.tabbed[class~='tabbed--multi'] > [class~='tabbed__list'] {
+  flex-wrap: wrap;
+}
+
+.tabbed > [class~='tabbed__list'] > [class~='tabbed__tab'],
+.tabbed > [class~='tabbed__list'] > [class~='tabbed__action'] {
+  flex: 0 0 auto;
+  min-width: var(--clickable-icon-size);
+  min-height: var(--clickable-icon-size);
+  margin: 0;
+  padding: var(--size-2-2) var(--size-4-2);
+  overflow: hidden;
+  font: inherit;
+  color: var(--text-muted);
+  text-align: start;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-s);
+  box-shadow: none;
+}
+
+.tabbed > [class~='tabbed__list'] > [class~='tabbed__tab'].is-active {
+  color: var(--text-normal);
+  background: var(--background-primary);
+  box-shadow: inset 0 calc(-1 * var(--border-width)) 0 var(--interactive-accent);
+}
+
+.tabbed[class~='tabbed--bottom'] > [class~='tabbed__list'] > [class~='tabbed__tab'].is-active {
+  box-shadow: inset 0 var(--border-width) 0 var(--interactive-accent);
+}
+
+.tabbed[class~='tabbed--left'] > [class~='tabbed__list'] > [class~='tabbed__tab'].is-active {
+  box-shadow: inset calc(-1 * var(--border-width)) 0 0 var(--interactive-accent);
+}
+
+.tabbed[class~='tabbed--right'] > [class~='tabbed__list'] > [class~='tabbed__tab'].is-active {
+  box-shadow: inset var(--border-width) 0 0 var(--interactive-accent);
+}
+
+.tabbed > [class~='tabbed__list'] > [class~='tabbed__tab']:focus-visible,
+.tabbed > [class~='tabbed__list'] > [class~='tabbed__action']:focus-visible {
+  outline: var(--border-width) solid var(--background-modifier-border-focus);
+  outline-offset: calc(-1 * var(--border-width));
+}
+
+.tabbed[class~='tabbed--limit-title-width'] > [class~='tabbed__list'] > [class~='tabbed__tab'] {
+  max-width: var(--tabbed-title-max-width);
+}
+
+.tabbed[class~='tabbed--one'] [class~='tabbed__title'] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tabbed[class~='tabbed--multi'] [class~='tabbed__title'] {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.tabbed [class~='tabbed__title'] > * {
+  display: inline;
+  margin: 0;
+}
+
+.tabbed > [class~='tabbed__panels'] {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-height: var(--tabbed-content-max-height);
+}
+
+/* On phones Obsidian makes every Reading-view Base embed full-bleed: it widens the
+   embed by the note margins and shifts it left. That only suits a Base sitting
+   directly in the note; inside a tab panel or a column it overlaps the neighbour
+   column and adds phantom horizontal scroll, so both containers cancel it the way
+   Obsidian does for `.callout-content`. Only the placement is reverted: the phone
+   border and corner chrome of the embed stays as it is, matching callouts. */
+.tabbed > [class~='tabbed__panel'],
+.tabbed > [class~='tabbed__panels'] > [class~='tabbed__panel'] {
+  --bases-embed-width: 100%;
+  --bases-embed-transform: none;
+
+  min-width: 0;
+  max-height: var(--tabbed-content-max-height);
+  padding: var(--tabbed-content-padding);
+  overflow: auto;
+}
+
+.tabbed[class~='tabbed--top'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--bottom'] > [class~='tabbed__panels'] > [class~='tabbed__panel'].is-active {
+  border-radius: var(--tabbed-inner-radius) var(--tabbed-inner-radius) 0 0;
+}
+
+.tabbed[class~='tabbed--bottom'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--top'] > [class~='tabbed__panels'] > [class~='tabbed__panel'].is-active {
+  border-radius: 0 0 var(--tabbed-inner-radius) var(--tabbed-inner-radius);
+}
+
+.tabbed[class~='tabbed--left'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--right'] > [class~='tabbed__panels'] > [class~='tabbed__panel'].is-active {
+  border-radius: var(--tabbed-inner-radius) 0 0 var(--tabbed-inner-radius);
+}
+
+.tabbed[class~='tabbed--right'] > [class~='tabbed__list'],
+.tabbed[class~='tabbed--left'] > [class~='tabbed__panels'] > [class~='tabbed__panel'].is-active {
+  border-radius: 0 var(--tabbed-inner-radius) var(--tabbed-inner-radius) 0;
+}
+
+.tabbed > [class~='tabbed__panels'] > [class~='tabbed__panel']:not(.is-active) {
+  position: absolute;
+  inset: 0 0 auto;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabbed[class~='tabbed--border-none'],
+.tabbed[class~='tabbed--border-hover'] {
+  border-color: transparent;
+}
+
+.tabbed[class~='tabbed--border-always'],
+.tabbed[class~='tabbed--border-hover']:hover {
+  border-color: var(--tabbed-border-color);
+}
+
+.tabbed-host ~ .embed-actions .edit-block-button {
+  display: none;
+}
+
+.tabbed-editor-modal {
+  --tabbed-editor-width: 52rem;
+
+  width: min(90vw, var(--tabbed-editor-width));
+  max-width: calc(100vw - var(--size-4-8));
+}
+
+.tabbed-editor-modal > [class~='tabbed-editor-modal__content'] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-3);
+  min-width: 0;
+}
+
+.tabbed-editor-modal [class~='tabbed-editor-modal__title'] {
+  width: 100%;
+}
+
+.tabbed-editor-modal [class~='tabbed-editor-modal__toolbar'] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-2-2);
+}
+
+.tabbed-editor-modal [class~='tabbed-editor-modal__content'] .cm-editor {
+  min-height: min(50vh, 24rem);
+  max-height: 70vh;
+  border: var(--border-width) solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+}
+
+.tabbed-editor-modal [class~='tabbed-editor-modal__content'] .cm-scroller {
+  overflow: auto;
+}
+
+.tabbed-columns {
+  --tabbed-column-min-width: 18rem;
+  --bases-embed-width: 100%;
+  --bases-embed-transform: none;
+
+  min-width: 0;
+  overflow-x: auto;
+  color: var(--text-normal);
+}
+
+.tabbed-columns > [class~='tabbed-columns__grid'] {
+  display: grid;
+  gap: var(--size-4-4);
+  min-width: 0;
+}
+
+.tabbed-columns > [class~='tabbed-columns__measure'] {
+  height: 0;
+  overflow: hidden;
+}
+
+.tabbed-columns.is-stacked > [class~='tabbed-columns__grid'] {
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+
+.tabbed-columns [class~='tabbed-columns__column'],
+.tabbed-columns [class~='tabbed-columns__content'] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tabbed-columns [class~='tabbed-columns__title'] {
+  margin-bottom: var(--size-4-2);
+  font-weight: var(--font-semibold);
+  color: var(--text-normal);
+}
+
+.tabbed-columns [class~='tabbed-columns__title'] > * {
+  margin: 0;
+}
+
+.tabbed-columns [class~='tabbed-columns__fallback'] {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

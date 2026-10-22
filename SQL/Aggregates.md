@@ -1,0 +1,6 @@
+- COUNT()
+- SUM()
+- MAX()
+- MIN()
+- AVG()
+- ROUND()

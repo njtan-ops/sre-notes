@@ -1,0 +1,3 @@
+- SQLite is embedded, not client-server
+- Flexible in data types, it doesn't enforce it 
+- No boolean but accepts TRUE and FALSE keywords
