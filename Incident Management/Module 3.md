@@ -102,13 +102,13 @@ The course shows example targets for Largest Contentful Paint (LCP), First Input
 
 ## Application Health Indicators
 
-| Indicator | What it checks |
-| --- | --- |
-| HTTP health endpoint | Application process is responding |
-| Port check | Expected service port is reachable |
-| Synthetic transaction | Simulated user action succeeds |
-| Dependency check | Database or external API is connected |
-| Runtime metrics | Memory, garbage collection, thread pool, and related process state |
+| Indicator             | What it checks                                                     |
+| --------------------- | ------------------------------------------------------------------ |
+| HTTP health endpoint  | Application process is responding                                  |
+| Port check            | Expected service port is reachable                                 |
+| Synthetic transaction | Simulated user action succeeds                                     |
+| Dependency check      | Database or external API is connected                              |
+| Runtime metrics       | Memory, garbage collection, thread pool, and related process state |
 
 ### Kubernetes Health Endpoints
 

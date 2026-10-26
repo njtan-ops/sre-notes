@@ -1,4 +1,4 @@
-# When Systems Fail: Understanding Incident Management
+ # When Systems Fail: Understanding Incident Management
 
 ![[Pasted image 20261022034644.png]]
 
@@ -6,7 +6,7 @@
 ## What Is an Incident?
 - is any unplanned interruption or degradation in the quality of an IT service that impacts or has potential to impact users, systems, or business operations
 
-#### The ITIL Concept Hierarchy - From Signal To Solution
+### The ITIL Concept Hierarchy - From Signal To Solution
 - Event
 	- Any Observable Occurrence in the System
 		- events are raw signals:
@@ -17,7 +17,7 @@
 		- most events are completely normal
 - Alert
 	- Notification of an Abnormal Condition
-		- alert is triggered when an even crosses a defined threshold
+		- alert is triggered when an event crosses a defined threshold
 		- alerts require human attention but are not automatically incidents
 		- alerts need to be assessed first
 - Incident
@@ -35,15 +35,14 @@
 		- not caused by a failure and does not follow the incident management process
 
 
-##### Why the Distinction Matters
+### Why the Distinction Matters
 > Treating as Service Request as an Incident wastes your team's emergency response capacity. Treating an Incident as just an Alert means users suffer longer than necessary. Knowing which category you are dealing with determines who gets paged, how fast you respond, and what process you follow
-
 
 
 ## What Is Incident Management - and Why Does It Matter?
 - incident management is the structured process of detecting, responding to, resolving, and learning from incidents in order to restore service as quickly as possible and minimize impact on users and the business 
 
-#### Four Core Pillars
+### Four Core Pillars
 - Respond Effectively
 	- Have a clear process so the team can act immediately - not spend the first 20 minutes figuring out who should do what
 - Communicate Clearly 
@@ -53,7 +52,7 @@
 - Continuously Improve
 	- Every incident is a learning opportunity. A proper process captures what happened, why it happened, and what changes will prevent it from happening again
 
-##### The Incident Management Lifecycle
+### The Incident Management Lifecycle
 1. Detection 
 	- An alert fires or a user reports an issue
 	- The on-call engineer is notified
@@ -76,15 +75,24 @@
 	- Identify the root cause
 	- Implement permanent fixes
 
-##### Mitigation vs Resolution - What's The Difference?
+### Mitigation vs Resolution - What's The Difference?
 > **Mitigation**
 > means the pain stops- service is restored for users, even if you've used a temporary fix like a rollback or a restart
 > **Resolution**
-> mens the problem is fully addressed, including the root cause. You should always aim for mitigation first to reduce user impact, then pursue proper resolution afterward
+> means the problem is fully addressed, including the root cause. You should always aim for mitigation first to reduce user impact, then pursue proper resolution afterward
 
+
+### Lifecycle Diagram
+```mermaid
+flowchart LR
+  D[Detection] --> T[Triage] --> R[Response]
+  R --> M[Mitigation] --> F[Resolution] --> P[Postmortem]
+```
+
+The six steps describe an incident's progression; the next topic groups response work into the broader Prepare, Respond, and Learn cycle. (2-1.pdf, p. 5)
 
 ## Key Incident Management Roles
-### Role 1 - Incident Manager (IC) | Incident Commander | Incident Commander
+### Role 1 - Incident Manager | Incident Commander (IC) | Incident Lead
 
 - The central decision-maker and coordinator during an incident
 - Their job is to make sure everyone else can do their job effectively
@@ -99,12 +107,12 @@
 	- Prioritize actions and next steps
 	- Determine when to escalate
 - Delegation
-	- Assign investigation tasks to team membvers
+	- Assign investigation tasks to team members
 	- Engage specialists when needed
 	- Remove blockers preventing the team from progressing
 - Stress Management
 	- Keep the team calm and focused 
-	- Prevent unncessary distractions
+	- Prevent unnecessary distractions
 	- maintain operational discipline under pressure
 - Escalation
 	- Escalate to senior engineers or leadership when required
@@ -166,14 +174,13 @@
 	- Ensure messaging is clear, accurate, and avoids unnecessary alarm
 	- Coordinate with support and PR teams on customer-facing language
 
-##### Why This Role Changes Everything
+### Why This Role Changes Everything
 > In incidents without a dedicated Comms Manager, Engineers are constantly interrupted with "what's the status?" questions. Studies show this context-switching can add 30-60 minutes to resolution time. Separating communication from investigation is one of the highest-value structural decisions a team can make
-
 
 
 ### Role 4 - Customer Support Lead | Support Coordinator | Customer Experience Lead
 
-- Manages the front lien: incoming surge of customer tickets, live chat messages, and support calls that accompany any significant incident
+- Manages the front line: incoming surge of customer tickets, live chat messages, and support calls that accompany any significant incident
 
 - Customer Coordination
 	- Manage the surge in incoming support tickets and inquiries
@@ -188,7 +195,7 @@
 ### Role 5 - The Scribe | Incident Recorder | Timeline Keeper | Documentation Lead
 
 - The official memory of the incident
-- Creates an accurate, timestamped record that becomes the foundation of the postmortem review and future prevention efforst
+- Creates an accurate, timestamped record that becomes the foundation of the postmortem review and future prevention efforts
 
 - Live Documentation
 	- Maintain a real-time, timestamped incident timeline
@@ -199,7 +206,7 @@
 	- Ensure escalations, handoffs, and role changes are logged
 	- Preserve the details - people forget what happened surprisingly fast once the pressure is off
 
-##### The Scribe's Golden Rule
+### The Scribe's Golden Rule
 > Write what happened, not what you think happened. Record actions and observations factually and with exact timestamps. The Scribe's notes will be reviewed days later by people who weren't in the room - clarity and accuracy matter more than speed
 
 
@@ -216,7 +223,7 @@
 	- Identify all contributing factors - not just the surface trigger
 	- Use structured techniques like asking "why" repeatedly until you reach the real root cause 
 - Preventive Improvements
-	- Tract remediation action items to completion
+	- Track remediation action items to completion
 	- Coordinate long-term fixes with engineering teams
 	- Validate that fixes actually prevent recurrence
 - Postmortem management
@@ -224,7 +231,7 @@
 	- Ensure the postmortem document is completed and shared
 	- Follow up on open action items
 
-##### Incident vs. Problem Management - The Key Difference
+### Incident vs. Problem Management - The Key Difference
 > Incident management asks: "How do we get the service back up right now?" Problem management asks: "Why did this keep happening and what do we change so it never happens again?" Example: fixing a crashed server is incident management. Figuring out why it keeps crashing every Tuesday and permanently patching it is problem management
 
 
@@ -247,6 +254,7 @@
 	- Observes the incident response and begins preparing for the root cause analysis - ensuring the full postmortem process kicks off immediately after service is restored
 
 ### Incident: Customers Cannot Complete Online Purchases
+- Course scenario: payment service returns HTTP 500 errors; **35% of checkout attempts fail**. The example declares SEV-1; this is the scenario's classification, not a universal percentage threshold. (2-1.pdf, pp. 10-11)
 - Incident manager
 	- Opens the incident bridge (video/Slack war room), declares a Severity 1 incident, assigns the Technical Lead to investigate the payment service, and requests the Communications Manager begin drafting the first stakeholder update
 - Technical Lead
@@ -254,13 +262,13 @@
 - Communications Manager
 	- Posts an initial update to the status page: "We are aware of an issue affecting checkout. Our team is actively investigating. We will provide an update in 15 minutes." Sends a summary to the VP of Engineering and the Support team lead
 - Customer Support Lead
-	- Sees as surge of 47 checkout-related tickets in the last 10 minutes. Applies a bulk response template. Reports to the Incident manager that customers are also seeing "session expired" errors - a new symptom not yet in the investigation scope
+	- Sees a surge of 47 checkout-related tickets in the last 10 minutes. Applies a bulk response template. Reports to the Incident manager that customers are also seeing "session expired" errors - a new symptom not yet in the investigation scope
 - Scribe
-	- Logs: "14:32 - Incident declared SEV-1. 14:34 - Technical Lead identified DB connection errors. 14:37 - Rollback recommended. 14:39 - Customer Support reports session expiry errors. 14:41 - Rollback initiated by DevOps." Every entry timestamped and attributes
+	- Logs: "14:32 - Incident declared SEV-1. 14:34 - Technical Lead identified DB connection errors. 14:37 - Rollback recommended. 14:39 - Customer Support reports session expiry errors. 14:41 - Rollback initiated by DevOps." Every entry timestamped and attributed
 - Problem manager
 	- After service is restored via rollback, schedules a postmortem for the following day. Begins drafting the RCA document based on the Scribe's timeline. Identifies that the database connection pool limit was not increased when the new feature was deployed - the root cause to investigate
 
-##### Notice What Didn't Happen
+### Notice What Didn't Happen
 > No engineer had to stop investigating to answer a stakeholder question. No one had to remember what happened after the fact - the Scribe captured it live. No one was confused about who owned what - the Incident Manager had already assigned roles. this is what structured incident management looks like in practice
 
 
@@ -278,11 +286,24 @@
 	- Engineers who have to write stakeholder updates while debugging are slower at both
 	- Separating these responsibilities is one of the most impactful structural decisions a team can make
 - Documenting Enables Learning
-	- What doesn't get written down doesn't get get learned from
-	- The Scribe's timeline and the Problem Manager's RCA turn every incident into as system improvement
+	- What doesn't get written down doesn't get learned from
+	- The Scribe's timeline and the Problem Manager's RCA turn every incident into a system improvement
 - Improvement Is Continuous 
 	- Incident management is not just about fixing today's problem
-	- Its about building a system that makes tomorrow's incidents shorter, rarer, and less painful
+	- It's about building a system that makes tomorrow's incidents shorter, rarer, and less painful
+
+## Knowledge Check
+- CPU reaches 95%, a monitoring alert fires, and no users have reported issues: why is this an alert, and what would establish an incident?
+- During an eight-minute payment outage, what should the Incident Manager coordinate?
+- Who holds the authoritative record when responders disagree about an action's time?
+- How do mitigation and resolution differ for the same incident?
+- Why separate technical investigation from stakeholder communication?
+- If an incident recurs after a skipped postmortem, what should the Problem Manager have driven?
+
+## Source
+- OpsWerks - Incident Management Fundamentals, Module 2, Topic 1.
+- **2-1.pdf, pp. 1-13**; definitions pp. 3-4, lifecycle p. 5, roles pp. 6-9, worked example pp. 10-11.
+- Existing embedded image retained above; the editable lifecycle diagram restates the source.
 
 # Incident Response Lifecycle & Severity Levels
 - Topic 2 of 4 - Incident Management Fundamentals
@@ -312,7 +333,7 @@
 	- Define how postmortems are conducted
 	- Record lessons learned and track preventive actions to completion
 
-#### A Plan No One Has Read Is No Plan At All
+### A Plan No One Has Read Is No Plan At All
 > Writing an incident response plan is only half the job. Teams need training, tabletop exercises, and regular updates so the plan is usable during a real outage.
 
 ## The Incident Response Lifecycle
@@ -326,7 +347,7 @@
 - Build the foundation for a fast, coordinated, and effective response
 - Preparation is ongoing rather than a one-time checklist
 
-#### Properties of a Good Alerting Mechanism
+### Properties of a Good Alerting Mechanism
 - Timely
 	- Alert early enough to enable action before user impact becomes severe
 	- Avoid unnecessary delays in notification
@@ -340,7 +361,7 @@
 	- Every alert should require a real human decision or response
 	- Avoid noisy alerts that distract responders without providing useful action
 
-#### Preparation Activities
+### Preparation Activities
 - Document your incident response plan
 	- Roles, escalation paths, communication templates, and runbooks
 - Run tabletop exercises
@@ -354,18 +375,18 @@
 - Active incident management when an incident is happening
 - Organize responders, establish ownership, and coordinate action instead of letting chaos determine the workflow
 
-#### Step 1 - Detect the Incident
+### Step 1 - Detect the Incident
 - Detection often begins with monitoring or alerting tools
 - Incidents may also be reported by customers or internal teams
 - A unified response process helps turn scattered signals into a coordinated investigation
 
-#### Step 2 - Triage - Assess Impact & Severity
+### Step 2 - Triage - Assess Impact & Severity
 - Confirm that an incident exists and determine its scope and user impact
 - Ask which services and users are affected and how urgently the team needs to act
 - Assign a severity level to determine the response expectations
 - Use severity to guide escalation, responder involvement, and communications
 
-#### Step 3 - Mitigate & Resolve
+### Step 3 - Mitigate & Resolve
 - Reduce user impact as quickly as possible, even if the root cause is not yet understood
 - Potential mitigations
 	- Rollback a faulty deployment
@@ -377,13 +398,13 @@
 
 ### Phase 3 - Learn
 - Turn every incident into a permanent improvement opportunity
-- The primary tool is a postmortem or post-incident review (PIR)
+- The primary tool is a postmortem  or post-incident review (PIR)
 - A postmortem is a structured analysis of what happened, why it happened, and what changes should prevent recurrence
 
-#### Blameless Postmortems
+### Blameless Postmortems
 > A blameless postmortem focuses on systems and processes, not individuals. The goal is to find the systemic weaknesses that allowed an incident to occur. When engineers fear punishment, they withhold information. Blameless culture produces better data, better learning, and better outcomes.
 
-#### What Does a Postmortem Cover?
+### What Does a Postmortem Cover?
 - Incident Timeline
 	- Chronological record of events, actions, and decisions from first alert to full resolution
 - Impact Summary
@@ -397,11 +418,27 @@
 - Follow-Up & Tracking
 	- Assign owners, prioritize actions, and track completion so lessons turn into actual improvements
 
-#### The Postmortem Feeds the Plan
+### The Postmortem Feeds the Plan
 - Incident -> Resolve -> Postmortem -> Action Items -> System Improves
 - The findings should update the response plan, monitoring, runbooks, and training
 - Repeated incidents indicate that lessons or action items may not have been fully addressed
 
+### Preparation and Learning Loop
+```mermaid
+flowchart LR
+  P[Prepare: plan, alerts, on-call, exercises] --> R[Respond: detect, triage, mitigate and resolve]
+  R --> L[Learn: blameless postmortem]
+  L --> A[Assign and track improvements]
+  A --> P
+```
+
+Postmortem actions should be concrete, assigned, time-bound, and included in upcoming sprint work. (2-2.pdf, pp. 3-6)
+
+### Alerting Example
+- Symptom: **checkout is failing** - directly describes a customer outcome.
+- Internal signal: **CPU at 80%** - may help investigation, but by itself does not establish user impact.
+- Timeliness, coverage, and actionability prevent both silent failures and alert fatigue. (2-2.pdf, p. 4)
+ 
 ## Understanding Incident Severity Levels
 - Not all incidents demand the same urgency
 - Severity levels standardize how an incident's impact on users, systems, and business operations is classified
@@ -475,12 +512,15 @@
 - Examples
 	- Proactive monitoring flag without impact yet
 	- Feature enhancement request
-	- Known code or system issue that has not caused problems and is tracked for later work
+	- Known code or system is sue that has not caused problems and is tracked for later work
 - Response expectations
 	- Response time: Planned sprint cycle
 	- No escalation required
 	- Reviewed in regular team meetings
 	- After-hours page: No
+
+### Source Nuance: SEV-3 Paging
+The detailed SEV-3 card says no after-hours paging is required; the summary table says “case by case.” Both appear on p. 8 of 2-2.pdf. The table below follows the summary; use the organization's documented policy for operational decisions.
 
 ### Severity At A Glance
 | Level | User Impact | Response Time | After-Hours Page? |
@@ -491,7 +531,7 @@
 | SEV-4 | Low / minimal or cosmetic | Next business day | No |
 | SEV-5 | Informational / no current impact | Planned sprint | No |
 
-#### Avoid Two Common Mistakes
+### Avoid Two Common Mistakes
 - Severity Inflation
 	- Calling everything SEV-1 to get faster attention
 	- Desensitizes the team, creates alert fatigue, and burns out on-call engineers
@@ -519,6 +559,7 @@
 
 ### Source
 - OpsWerks - Incident Management Fundamentals, Module 2, Topic 2: Incident Response Lifecycle & Severity Levels
+- **2-2.pdf, all 11 pages**; plan pp. 2-3, lifecycle pp. 3-6, severity pp. 7-9.
 - https://academy.werkslearning.opswerks.com/pluginfile.php/2760/mod_scorm/content/3/02-incident-response-lifecycle-severity-lev.html
 
 # Common KPIs of an Incident Management
@@ -581,15 +622,15 @@
 
 ### 4. TTR - Mean Time to Resolve
 - Measures the total time required to fully diagnose, recover, fix, test, and close the incident
-- Timeline: **First product impact -> Full recovery / resolution**
-- Represents the total business impact duration of an incident
+- Timeline used in this note: **First product impact -> Full recovery / resolution** (see the source's conflicting TTR label below)
+- The course describes this as total business impact duration; user-facing disruption may already have ended at mitigation
 - Depends on earlier stages, plus the speed of investigation and final restoration
 - TTR and TTM are not interchangeable
 	- TTM ends when impact is mitigated
 	- TTR ends when the incident is fully resolved
 
 ### 5. TBF - Mean Time Between Failures
-- Measures the average time between failures or incidents
+- Measures the average disruption-free operating time from full recovery of one incident to first impact of the next
 - Indicates longer-term system reliability and resilience
 - Higher TBF generally indicates a more resilient system with fewer recurring failures
 - Key dependencies
@@ -617,8 +658,32 @@
 - Full recovery / resolution
 	- **TTR ends**
 - Next failure
-	- **TBF** measures the interval between failures
+	- **TBF** measures the interval from full recovery to the next failure
 - The course timeline illustrates that TTM and TTR start from **first product impact**, not from alert acknowledgment
+
+### Editable KPI Measurement Diagram
+```mermaid
+flowchart LR
+  A[First product impact] --> B[Detection / alert]
+  B --> C[Human acknowledges]
+  C --> D[Attempted mitigation fails]
+  D --> E[Effective mitigation]
+  E --> F[Full recovery]
+  F --> G[Next incident begins]
+```
+
+| Duration | Start | End |
+| --- | --- | --- |
+| TTD | First product impact | First detection |
+| TTA | Alert fires | Human acknowledges ownership |
+| TTM | First product impact | Effective mitigation restores service |
+| TTR, following course overview diagram | First product impact | Full recovery / permanent fix and closure |
+| TBF, following course diagram | Full recovery of previous incident | First impact of next incident |
+
+A failed mitigation attempt does **not** end TTM. TBF here measures the disruption-free operating interval, rather than an unspecified incident-start-to-incident-start interval. (2-3.pdf, pp. 3, 5-6)
+
+### Source Nuance: TTR Start Point
+The overview diagram on p. 3 and exercise on p. 10 measure TTR from first product impact. The TTR card on p. 5 instead labels its start “Incident First Detected.” These conflict. This note uses the overview/exercise convention and records the alternative explicitly; agree on a start point before comparing team reports. TTM and TTR overlap, so do not add their full durations together.
 
 ## KPI Quick Reference
 | KPI | Full Name | Measures | Higher Value Usually Means |
@@ -630,7 +695,7 @@
 | TBF | Time Between Failures | System reliability | Greater resilience / fewer failures |
 
 ### Mean vs Individual Measurement
-- The **M** in TTD, TTA, TTM, and TTR stands for **Mean**
+- The **M** prefix in MTTD, MTTA, MTTM, MTTR, and MTBF stands for **Mean** (average). TTD, TTA, TTM, TTR, and TBF are the individual durations
 - Teams track both individual incident durations and averages across multiple incidents
 - Averages show overall patterns, but individual incidents may reveal outliers needing investigation
 - An average alone can hide unusually slow responses to specific incidents
@@ -660,6 +725,37 @@
 	- Remove duplicate alerts
 	- Route alerts to the correct owner
 
+### Bottleneck Pattern - Slow Recovery / Operational Readiness
+- Signal: Fast detection and acknowledgment, but slow TTM.
+- Cause: Lack of operational readiness.
+- Improve: Build and test mitigation playbooks; enable rollback; pre-authorize standard mitigation actions. (2-3.pdf, p. 9)
+
+### Bottleneck Pattern - Fragile Infrastructure / Recurring Failure
+- Signal: Good TTR, critically low TBF; similar incidents keep returning.
+- Cause: Temporary fixes and high technical debt.
+- Improve: Complete postmortem actions, invest in permanent fixes, and reduce technical debt in unstable modules. (2-3.pdf, p. 9)
+
+### Improving TTM and TTR
+| KPI | Dependencies / obstacles | Improvements in the course |
+| --- | --- | --- |
+| TTM | Resilience and failover, rollback speed, authority to approve actions, organizational risk tolerance | Predefined playbooks, feature flags, traffic shifting, one-click rollback, controlled failover tests, fewer approval bottlenecks |
+| TTR | Upstream response delays, change review/approval/deployment time, fix complexity and technical debt | Improve detection and acknowledgment, run mitigation and investigation in parallel, speed safe deployment, verify stable recovery before closure |
+
+(2-3.pdf, pp. 5-6, 9)
+
+### Worked KPI Example
+Course exercise: degradation begins **14:00**, alert fires **14:25**, engineer acknowledges **14:30**, rollback restores service **14:45**, and the root-cause fix is deployed **15:30**. (2-3.pdf, p. 10)
+
+| KPI | Calculation | Result |
+| --- | --- | --- |
+| TTD | 14:25 - 14:00 | 25 minutes |
+| TTA | 14:30 - 14:25 | 5 minutes |
+| TTM | 14:45 - 14:00 | 45 minutes |
+| TTR, overview convention | 15:30 - 14:00 | 90 minutes |
+| TTR, card's detection-based alternative | 15:30 - 14:25 | 65 minutes |
+
+The course calls the total incident 90 minutes, supporting the overview convention. The user-facing service is restored before permanent resolution.
+
 ## Key Takeaways
 - **TTD:** How quickly do we notice?
 - **TTA:** How quickly does someone respond?
@@ -679,7 +775,7 @@
 ### Source
 - OpsWerks - Incident Management Fundamentals, Module 2, Topic 3: Common KPIs of an Incident Management
 - https://academy.werkslearning.opswerks.com/pluginfile.php/2760/mod_scorm/content/3/03-common-kpis-of-an-incident-management.html
-- **Source limitation:** Some PDF pages (especially pages 5-6 and 9) are blank in the supplied export; detailed examples and additional bottleneck patterns from those pages could not be verified.
+- Reviewed visually against **2-3.pdf, all 11 pages**. The rendered pages contain the mitigation/resolution details and all four bottleneck patterns.
 
 # SLI, SLO, SLA, Error Budget & PQRST Framework
 - Topic 4 of 4 - Incident Management Fundamentals
@@ -712,8 +808,8 @@
 	- Throughput - successful requests per second
 - Course example
 	- Request success rate: **99.2%** of API requests returned a 2xx response in the last 30 days
-	- Latency (p95): **180 ms**, meaning 95% of requests finished within 180 ms
-	- Availability: **99.05%** uptime over a 30-day window
+	- Latency (p95): **187 ms**, the 95th-percentile response time
+	- Availability: **99.95%** uptime over a 30-day window
 - SLIs provide raw signals used to define SLOs
 
 ### SLO - Service Level Objective
@@ -730,7 +826,7 @@
 	- Window: Over 30 days
 - Additional course examples
 	- Availability SLO: 99.9% of requests must succeed over 30 days
-	- Latency SLO: 95% of requests must complete under 200 ms
+	- Latency SLO: the source states “p95 latency must be under 200 ms for 99% of requests.” This mixes a percentile with a request fraction; retain it as course wording rather than treating it as a precisely specified SLO
 	- Error Rate SLO: Error rate must remain below 0.1%
 - Above SLO
 	- Performance is acceptable; keep shipping features and the system is healthy
@@ -752,7 +848,7 @@
 	- External SLA: **99.5%**
 	- The 0.4 percentage-point difference creates a safety buffer
 	- If performance falls below the SLO but remains above the SLA, engineering has time to improve reliability before a contractual breach
-- The course frames the SLA as a ceiling that must not be breached and the SLO as the stricter internal target
+- The source uses a “ceiling/floor” analogy. For the numerical availability example, read 99.5% as the contractual minimum and 99.9% as the stricter internal target
 
 ### Error Budget
 - Question: **How much failure is allowed?**
@@ -761,7 +857,7 @@
 - Example
 	- SLO = 99.9% availability
 	- Error budget = 0.1% of the measurement window
-	- For a 30-day window: 30 x 24 x 60 = 43,200 minutes
+	- For an exact 30-day window: 30 x 24 x 60 = 43,200 minutes
 	- Allowed unavailable time = 43,200 x 0.001 = **43.2 minutes**
 - Error budgets balance innovation and reliability
 	- Teams must ship new features, but releases and experiments introduce risk
@@ -771,12 +867,58 @@
 	- Rapidly consuming or exhausted budget: investigate reliability issues and reconsider risky changes
 - Error budget policies turn reliability targets into operational decisions
 
+### Error-Budget Table from the Course
+The table combines request-based allowances for **1,000,000 requests** with time-based availability equivalents. Keep those measurement bases distinct. (2-4.pdf, p. 6)
+
+| SLO | Error budget | Allowed failed requests per 1,000,000 | Downtime/month as printed | Downtime/year as printed |
+| --- | --- | --- | --- | --- |
+| 99.0% | 1.0% | 10,000 | 7 h 18 min | 3 d 15 h 36 min |
+| 99.5% | 0.5% | 5,000 | 3 h 39 min | 1 d 19 h 48 min |
+| 99.9% | 0.1% | 1,000 | 43.8 min | 8 h 45 min 36 sec |
+| 99.95% | 0.05% | 500 | 21.9 min | 4 h 22 min 48 sec |
+| 99.99% | 0.01% | 100 | 4.38 min | 52 min 35 sec |
+
+**Arithmetic clarification:** The source labels this “over 30 days,” but its monthly figures use **43,800 minutes**, equivalent to an average month in a 365-day year. An exact 30-day window has **43,200 minutes**, so the correct equivalents are:
+
+| SLO | Exact 30-day downtime allowance |
+| --- | --- |
+| 99.0% | 432 min = 7 h 12 min |
+| 99.5% | 216 min = 3 h 36 min |
+| 99.9% | 43.2 min |
+| 99.95% | 21.6 min |
+| 99.99% | 4.32 min |
+
+These are explicit calculations from the source formula, not additional course claims. For a request-success SLO, apply the budget to eligible requests; a time conversion describes time-based availability.
+
+### Error-Budget Decisions
+| Budget state | Course response |
+| --- | --- |
+| Budget remaining | Ship features and take calculated deployment risks within available headroom |
+| Nearly exhausted | Slow down and prioritize reliability; the same incident carries greater urgency |
+| Exhausted | Freeze risky changes and new feature deployments until reliability is restored and budget replenishes |
+
+Example calculated from the course exercise: with a **99.9% SLO over exactly 30 days**, a **15-minute outage** consumes **15 / 43.2 = 34.72%** of the time-based budget, leaving **28.2 minutes (65.28%)**, assuming no other downtime. (Exercise: 2-4.pdf, p. 11)
+
+### SLA Example
+The course promises **99.5% monthly availability**, with a **10% service credit** below that threshold. It separately lists exclusions such as scheduled maintenance and events outside the provider's control. The quoted promise itself does not spell out those exclusions; read them from the agreement rather than assuming them. (2-4.pdf, p. 5)
+
 ## The Reliability Pipeline
 - **SLI:** Measures real system behavior
 - **SLO:** Defines acceptable performance
 - **SLA:** Establishes the external contractual commitment
 - **Error Budget:** Quantifies how much deviation is allowed
 - Together, these guide deployments, risk-taking, and incident response urgency
+
+### Reliability Relationship Diagram
+```mermaid
+flowchart LR
+  I[SLI: measured behavior] --> O[SLO: internal target]
+  O --> A[SLA: external commitment]
+  A --> B[Error budget: guides risk decisions]
+  O -. "100% minus SLO" .-> B
+```
+
+The solid sequence reproduces the course's conceptual pipeline; the dotted link makes its budget formula explicit. (2-4.pdf, p. 7)
 
 ## PQRST Framework for Incident Communication
 - A structured framework for communicating during an incident
@@ -798,10 +940,58 @@
 	- "The system feels slow" is too vague to direct a response
 	- A precise trigger helps route the incident to the correct service and error type
 
-### Q, R, S, T - Source Export Incomplete
-- The provided PDF contains blank pages where the remaining PQRST pillars and worked communication examples appear to be located
-- Their exact course definitions cannot be verified from this export
-- **To complete these sections faithfully, obtain a readable export or screenshots of the missing lesson pages**
+### Q - Quality
+- **What's actually broken?** Describe user-facing impact in plain business language.
+- Translate telemetry into what users cannot do; an internal failure mode alone does not explain the experience.
+- Example: **Customers are unable to complete purchases**, rather than only reporting database pool exhaustion. (2-4.pdf, p. 8)
+
+### R - Region
+- **Where is this happening?** State the exact geographic or architectural scope, also called the blast radius.
+- Identify affected regions, user groups, platforms, or whether impact is global.
+- Examples: **Only us-west-2 affected**; **all mobile clients affected across all regions**.
+- Precise boundaries help isolate failures and avoid unnecessary escalation; understating global impact can also delay response. (2-4.pdf, p. 8)
+
+### S - Severity
+- **How bad is it?** Quantify current impact using percentages, counts, or rates.
+- Examples: **10% of requests failing**; **100% outage for new sessions, with 8% of monthly error budget consumed in the last 30 minutes**.
+- Quantification informs escalation, resource allocation, and reliability risk. The PQRST Severity field supplies impact numbers; the SEV classification determines the response policy. (2-4.pdf, p. 9)
+
+### T - Time
+- **When did it start?** Give exact onset and alert timestamps, plus current duration.
+- Example: **First alert at 09:32 PT; errors rising since 09:28; duration 14 minutes and ongoing**.
+- Exact times support TTD calculation, deployment correlation, and the postmortem timeline. Avoid relative descriptions such as “about 20 minutes ago.” (2-4.pdf, p. 9)
+
+### PQRST Quick Reference
+| Pillar | Question | Information to include |
+| --- | --- | --- |
+| Provocation | What triggered this? | Exact alert, metric, or log signal |
+| Quality | What's broken for users? | Functional / business impact |
+| Region | Where and for whom? | Geographic or architectural scope |
+| Severity | How bad is it? | Measured failures, affected counts, budget consumption |
+| Time | When did it start? | Onset, detection time, duration and timezone |
+
+### Course Case Study: Checkout After a Deployment
+The course compares a vague update about broken checkout and unhappy users with this compact update:
+
+> “500 errors at 12% in us-west-2 since 09:28, affecting checkout. Consuming 50% of monthly error budget in 1 hour.”
+
+The breakdown underneath gives these **different scenario values**:
+
+| Pillar | Breakdown on source page 10 |
+| --- | --- |
+| P | Spike in HTTP 500 errors from checkout |
+| Q | Customers cannot complete purchases |
+| R | All regions affected |
+| S | 8% failure rate; 50% of monthly error budget consumed in one hour |
+| T | Started 09:28 PT following deployment v2.4.1 |
+
+**Source inconsistency:** The short update says **12% / us-west-2**, while the breakdown says **8% / all regions**. These must not be merged as if they were one verified observation. The example demonstrates structure; in a real update use the confirmed scope and measured rate. The supplied page does not provide request-volume data to independently derive its 50% budget-consumption claim. (2-4.pdf, pp. 9-10)
+
+### Connecting Reliability Targets and Communication
+- SLOs and error budgets establish urgency: Is the SLO breached? How fast is the budget being consumed? Is the SLA at risk?
+- PQRST communicates that urgency so engineers understand technical impact, leadership understands business risk, and everyone understands the time pressure.
+- The course contrasts the same 2% failure rate with a healthy budget versus a nearly exhausted one: the remaining budget changes the reliability risk.
+- SLO practices: support the SLA with a stricter internal target, keep the set small (three to five well-chosen objectives), and review targets as the system and customer needs evolve. (2-4.pdf, p. 10)
 
 ## Key Takeaways
 - SLIs tell you what is actually happening
@@ -813,7 +1003,7 @@
 
 ### Knowledge Check
 - Explain the difference between an SLI, an SLO, and an SLA using a speed-limit analogy
-- An SLA guarantees 99.5% availability, the SLO is 99.9%, and the SLI reports 99.91% over 30 days. Is the team meeting its SLO? Its SLA? How much error budget remains?
+- Course exercise: SLA = 99.9%, SLO = 99.95%, SLI = 99.91% over 30 days. Are the SLO and SLA met? What does that imply for the error budget?
 - If an SLO is 99.9% over 30 days, how many minutes of downtime are allowed?
 - Why should an SLO be stricter than an SLA?
 - A team's error budget is 90% exhausted with 10 days left in the month. What deployment decision should they consider?
@@ -822,9 +1012,4 @@
 ### Source
 - OpsWerks - Incident Management Fundamentals, Module 2, Topic 4: SLI, SLO, SLA, Error Budget & PQRST Framework
 - https://academy.werkslearning.opswerks.com/pluginfile.php/2760/mod_scorm/content/3/04-sli-slo-sla-error-budget-pqrst-framework.html
-- **Source limitation:** PDF pages 6 and 8-10 are blank in the supplied export, preventing verification of the complete PQRST framework and some error-budget examples.
-
-
-
-
-
+- Reviewed visually against **2-4.pdf, all 12 pages**, including the complete PQRST framework and error-budget table.
